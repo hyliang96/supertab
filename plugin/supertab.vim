@@ -157,18 +157,18 @@ set cpo&vim
     \ "\n" .
     \ "|<c-n>|      - Keywords in 'complete' searching down.\n" .
     \ "|<c-p>|      - Keywords in 'complete' searching up (SuperTab default).\n" .
-    \ "|<c-x><c-l>| - Whole lines.\n" .
-    \ "|<c-x><c-n>| - Keywords in current file.\n" .
-    \ "|<c-x><c-k>| - Keywords in 'dictionary'.\n" .
-    \ "|<c-x><c-t>| - Keywords in 'thesaurus', thesaurus-style.\n" .
-    \ "|<c-x><c-i>| - Keywords in the current and included files.\n" .
-    \ "|<c-x><c-]>| - Tags.\n" .
-    \ "|<c-x><c-f>| - File names.\n" .
-    \ "|<c-x><c-d>| - Definitions or macros.\n" .
-    \ "|<c-x><c-v>| - Vim command-line.\n" .
-    \ "|<c-x><c-u>| - User defined completion.\n" .
-    \ "|<c-x><c-o>| - Omni completion.\n" .
-    \ "|<c-x>s|     - Spelling suggestions."
+    \ "|".g:SuperTabMappingTabManual."<c-l>| - Whole lines.\n" .
+    \ "|".g:SuperTabMappingTabManual."<c-n>| - Keywords in current file.\n" .
+    \ "|".g:SuperTabMappingTabManual."<c-k>| - Keywords in 'dictionary'.\n" .
+    \ "|".g:SuperTabMappingTabManual."<c-t>| - Keywords in 'thesaurus', thesaurus-style.\n" .
+    \ "|".g:SuperTabMappingTabManual."<c-i>| - Keywords in the current and included files.\n" .
+    \ "|".g:SuperTabMappingTabManual."<c-]>| - Tags.\n" .
+    \ "|".g:SuperTabMappingTabManual."<c-f>| - File names.\n" .
+    \ "|".g:SuperTabMappingTabManual."<c-d>| - Definitions or macros.\n" .
+    \ "|".g:SuperTabMappingTabManual."<c-v>| - Vim command-line.\n" .
+    \ "|".g:SuperTabMappingTabManual."<c-u>| - User defined completion.\n" .
+    \ "|".g:SuperTabMappingTabManual."<c-o>| - Omni completion.\n" .
+    \ "|".g:SuperTabMappingTabManual."s|     - Spelling suggestions."
 
   " set the available completion types and modes.
   let s:types =
@@ -326,7 +326,7 @@ function! s:ManualCompletionEnter() " {{{
   " Handles manual entrance into completion mode.
 
   if &smd
-    echo '' | echohl ModeMsg | echo '-- ^X++ mode (' . s:modes . ')' | echohl None
+    echo '' | echohl ModeMsg | echo '-- select complt type: ' . s:modes ."\n".s:tabHelp | echohl None
   endif
   let complType = nr2char(getchar())
 
