@@ -69,6 +69,9 @@ let s:save_cpo=&cpo
 set cpo&vim
 
 " Global Variables {{{
+  if !exists("g:SuperTabMappingTabManual")
+    let g:SuperTabMappingTabManual='<c-x>'
+  endif
 
   if !exists("g:SuperTabDefaultCompletionType")
     let g:SuperTabDefaultCompletionType = "<c-p>"
@@ -307,6 +310,18 @@ function! s:InitBuffer() " {{{
   endif
 endfunction " }}}
 
+
+" function! s:DebugPrint(str)
+    " redir >> debug_output | silent! echo a:str | redir END
+" endfunction
+
+" function! s:ToEscapedKey(str)
+    " exec 'redir => l:result | silent! echo "'.a:str.'" | redir END'
+    " let l:result = substitute(l:result, '^\n' , '', 'g')
+    " return l:result
+" endfunction
+
+
 function! s:ManualCompletionEnter() " {{{
   " Handles manual entrance into completion mode.
 
@@ -314,6 +329,7 @@ function! s:ManualCompletionEnter() " {{{
     echo '' | echohl ModeMsg | echo '-- ^X++ mode (' . s:modes . ')' | echohl None
   endif
   let complType = nr2char(getchar())
+
   if stridx(s:types, complType) != -1
     if !exists('b:supertab_close_preview')
       let b:supertab_close_preview = !s:IsPreviewOpen()
@@ -360,8 +376,23 @@ function! s:ManualCompletionEnter() " {{{
     return complType
   endif
 
+  " call s:DebugPrint("complType: " . complType. " -> ". s:ToEscapedKey(complType))
+  " call s:DebugPrint("substitute g:SuperTabMappingTabManual: " .
+  " \ substitute(g:SuperTabMappingTabManual, '<','\\<','g'). " -> ".
+  " \ s:ToEscapedKey(substitute(g:SuperTabMappingTabManual, '<','\\<','g')) )
+  " call s:DebugPrint('equal?: '. (s:ToEscapedKey(complType) ==#
+      " \ s:ToEscapedKey(substitute(g:SuperTabMappingTabManual, '<','\\<','g'))))
+
+
+  " if s:ToEscapedKey(complType) ==#
+      " \ s:ToEscapedKey(substitute(g:SuperTabMappingTabManual, '<','\\<','g'))
+    " echohl  "Quit"
+    " return ''
+  " endif
+
   echohl "Unknown mode"
-  return complType
+  " return complType
+  return ''
 endfunction " }}}
 
 function! s:SetCompletionType() " {{{
@@ -971,7 +1002,10 @@ endfunction " }}}
   " map a regular tab to ctrl-tab (note: doesn't work in console vim)
   exec 'inoremap ' . g:SuperTabMappingTabLiteral . ' <tab>'
 
-  inoremap <silent> <c-x> <c-r>=<SID>ManualCompletionEnter()<cr>
+  " inoremap <silent> <c-x> <c-r>=<SID>ManualCompletionEnter()<cr>
+  if !hasmapto( g:SuperTabMappingTabManual , 'i')
+    exec 'inoremap <silent> ' . g:SuperTabMappingTabManual . ' <c-r>=<SID>ManualCompletionEnter()<cr>'
+  endif
 
   imap <script> <Plug>SuperTabForward <c-r>=SuperTab('n')<cr>
   imap <script> <Plug>SuperTabBackward <c-r>=SuperTab('p')<cr>
