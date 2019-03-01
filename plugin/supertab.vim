@@ -168,15 +168,16 @@ set cpo&vim
     \ "|".g:SuperTabMappingTabManual."<c-v>| - Vim command-line.\n" .
     \ "|".g:SuperTabMappingTabManual."<c-u>| - User defined completion.\n" .
     \ "|".g:SuperTabMappingTabManual."<c-o>| - Omni completion.\n" .
-    \ "|".g:SuperTabMappingTabManual."s|     - Spelling suggestions."
+    \ "|".g:SuperTabMappingTabManual."s|     - Spelling suggestions.\n" .
+    \ "|".g:SuperTabMappingTabManual."h|     - Open help manu."
 
   " set the available completion types and modes.
   let s:types =
     \ "\<c-e>\<c-y>\<c-l>\<c-n>\<c-k>\<c-t>\<c-i>\<c-]>" .
     \ "\<c-f>\<c-d>\<c-v>\<c-n>\<c-p>\<c-u>\<c-o>\<c-n>\<c-p>s"
   let s:modes = '/^E/^Y/^L/^N/^K/^T/^I/^]/^F/^D/^V/^P/^U/^O/s'
-  let s:types = s:types . "np"
-  let s:modes = s:modes . '/n/p'
+  let s:types = s:types . "nph"
+  let s:modes = s:modes . '/n/p/[h]elp'
 
 " }}}
 
@@ -321,16 +322,46 @@ endfunction " }}}
     " return l:result
 " endfunction
 
+function! s:ManualCompletionEnter()
+    let state = 'no_help'
+    while 1
+        let state = s:ManualCompletionEnterKernel(state)
+        if state ==# 'end'
+            break
+        endif
+    endwhile
+    return ''
+endfunction
 
-function! s:ManualCompletionEnter() " {{{
+function! s:ManualCompletionEnterKernel(state) " {{{
   " Handles manual entrance into completion mode.
 
   if &smd
-    echo '' | echohl ModeMsg | echo '-- select complt type: ' . s:modes ."\n".s:tabHelp | echohl None
+    if a:state ==# 'help'
+       echo 'ok' | echohl ModeMsg | echo '-- select complt type: ' . s:modes. '\n'. s:tabHelp  | echohl None
+    elseif a:state ==# 'no_help'
+       echo 'ok' | echohl ModeMsg | echo '-- select complt type: ' . s:modes  | echohl None
+    endif
   endif
   let complType = nr2char(getchar())
 
+  " call s:DebugPrint("complType: " . complType. " -> ". s:ToEscapedKey(complType))
+  " call s:DebugPrint("substitute g:SuperTabMappingTabManual: " .
+  " \ substitute(g:SuperTabMappingTabManual, '<','\\<','g'). " -> ".
+  " \ s:ToEscapedKey(substitute(g:SuperTabMappingTabManual, '<','\\<','g')) )
+  " call s:DebugPrint('equal?: '. (s:ToEscapedKey(complType) ==#
+      " \ s:ToEscapedKey(substitute(g:SuperTabMappingTabManual, '<','\\<','g'))))
+
   if stridx(s:types, complType) != -1
+    " press 'h' to get help
+    if complType  ==# 'h'
+      if a:state !=# 'no_help'
+          return 'keep'
+      else
+          return 'help'
+      endif
+    endif
+
     if !exists('b:supertab_close_preview')
       let b:supertab_close_preview = !s:IsPreviewOpen()
     endif
@@ -373,26 +404,13 @@ function! s:ManualCompletionEnter() " {{{
     endif
 
     call s:StartCompletionMode()
-    return complType
+    " return complType
+    return 'end'
   endif
-
-  " call s:DebugPrint("complType: " . complType. " -> ". s:ToEscapedKey(complType))
-  " call s:DebugPrint("substitute g:SuperTabMappingTabManual: " .
-  " \ substitute(g:SuperTabMappingTabManual, '<','\\<','g'). " -> ".
-  " \ s:ToEscapedKey(substitute(g:SuperTabMappingTabManual, '<','\\<','g')) )
-  " call s:DebugPrint('equal?: '. (s:ToEscapedKey(complType) ==#
-      " \ s:ToEscapedKey(substitute(g:SuperTabMappingTabManual, '<','\\<','g'))))
-
-
-  " if s:ToEscapedKey(complType) ==#
-      " \ s:ToEscapedKey(substitute(g:SuperTabMappingTabManual, '<','\\<','g'))
-    " echohl  "Quit"
-    " return ''
-  " endif
 
   echohl "Unknown mode"
   " return complType
-  return ''
+  return 'end'
 endfunction " }}}
 
 function! s:SetCompletionType() " {{{

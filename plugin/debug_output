@@ -1,0 +1,331 @@
+
+complType: 
+ -> 
+
+substitute g:SuperTabMappingTabManual: \<c-j> -> 
+
+equal?: 1
+complType: 
+ -> 
+
+substitute g:SuperTabMappingTabManual: \<c-j> -> 
+
+equal?: 1
+complType: 
+ -> 
+
+substitute g:SuperTabMappingTabManual: \<c-j> -> 
+
+equal?: 1
+complType:   ->  
+substitute g:SuperTabMappingTabManual: \<c-j> -> 
+
+equal?: 0
+complType:   ->  
+substitute g:SuperTabMappingTabManual: \<c-j> -> 
+
+equal?: 0
+complType: ^W -> ^W
+substitute g:SuperTabMappingTabManual: \<c-j> -> 
+
+equal?: 0
+complType: ^W -> ^W
+substitute g:SuperTabMappingTabManual: \<c-j> -> 
+
+equal?: 0
+complType: ^[ -> ^[
+substitute g:SuperTabMappingTabManual: \<c-j> -> 
+
+equal?: 0
+complType: ^[ -> ^[
+substitute g:SuperTabMappingTabManual: \<c-j> -> 
+
+equal?: 0
+complType: ^[ -> ^[
+substitute g:SuperTabMappingTabManual: \<c-j> -> 
+
+equal?: 0
+complType: ^W -> ^W
+substitute g:SuperTabMappingTabManual: \<c-j> -> 
+
+equal?: 0
+complType: ^W -> ^W
+substitute g:SuperTabMappingTabManual: \<c-j> -> 
+
+equal?: 0
+complType: 
+ -> 
+
+substitute g:SuperTabMappingTabManual: \<c-j> -> 
+
+equal?: 1
+complType: 
+ -> 
+
+substitute g:SuperTabMappingTabManual: \<c-j> -> 
+
+equal?: 1
+complType: 
+ -> 
+
+substitute g:SuperTabMappingTabManual: \<c-j> -> 
+
+equal?: 1
+complType: ^W -> ^W
+substitute g:SuperTabMappingTabManual: \<c-j> -> 
+
+equal?: 0
+complType: 
+ -> 
+
+substitute g:SuperTabMappingTabManual: \<c-j> -> 
+
+equal?: 1
+complType: 
+ -> 
+
+substitute g:SuperTabMappingTabManual: \<c-j> -> 
+
+equal?: 1
+complType: 
+ -> 
+
+substitute g:SuperTabMappingTabManual: \<c-j> -> 
+
+equal?: 1
+complType: 
+ -> 
+
+substitute g:SuperTabMappingTabManual: \<c-j> -> 
+
+equal?: 1
+complType: 
+ -> 
+
+substitute g:SuperTabMappingTabManual: \<c-j> -> 
+
+equal?: 1
+complType: 
+ -> 
+
+substitute g:SuperTabMappingTabManual: \<c-j> -> 
+
+equal?: 1
+complType: 
+ -> 
+
+substitute g:SuperTabMappingTabManual: \<c-j> -> 
+
+equal?: 1
+complType: 
+ -> 
+
+substitute g:SuperTabMappingTabManual: \<c-j> -> 
+
+equal?: 1
+complType: 
+ -> 
+
+substitute g:SuperTabMappingTabManual: \<c-j> -> 
+
+equal?: 1
+complType:  -> 
+substitute g:SuperTabMappingTabManual: \<c-j> -> 
+
+equal?: 0
+complType: 
+ -> 
+
+substitute g:SuperTabMappingTabManual: \<c-j> -> 
+
+equal?: 1
+complType: 
+ -> 
+
+substitute g:SuperTabMappingTabManual: \<c-j> -> 
+
+equal?: 1
+complType: 
+ -> 
+
+substitute g:SuperTabMappingTabManual: \<c-j> -> 
+
+equal?: 1
+complType: 
+ -> 
+
+substitute g:SuperTabMappingTabManual: \<c-j> -> 
+
+equal?: 1
+complType: 
+ -> 
+
+substitute g:SuperTabMappingTabManual: \<c-j> -> 
+
+equal?: 1
+complType: 
+ -> 
+
+substitute g:SuperTabMappingTabManual: \<c-j> -> 
+
+equal?: 1
+complType: 
+ -> 
+
+substitute g:SuperTabMappingTabManual: \<c-j> -> 
+
+equal?: 1
+complType: 
+ -> 
+
+substitute g:SuperTabMappingTabManual: \<c-j> -> 
+
+equal?: 1
+complType: 
+ -> 
+
+substitute g:SuperTabMappingTabManual: \<c-j> -> 
+
+equal?: 1
+complType: 
+ -> 
+
+substitute g:SuperTabMappingTabManual: \<c-j> -> 
+
+equal?: 1
+complType: 
+ -> 
+
+substitute g:SuperTabMappingTabManual: \<c-j> -> 
+
+equal?: 1
+complType: 
+ -> 
+
+substitute g:SuperTabMappingTabManual: \<c-j> -> 
+
+equal?: 1
+complType: 
+ -> 
+
+substitute g:SuperTabMappingTabManual: \<c-j> -> 
+
+equal?: 1
+complType: 
+ -> 
+
+substitute g:SuperTabMappingTabManual: \<c-j> -> 
+
+equal?: 1
+complType: 
+ -> 
+
+substitute g:SuperTabMappingTabManual: \<c-j> -> 
+
+equal?: 1
+complType: 
+ -> 
+
+substitute g:SuperTabMappingTabManual: \<c-j> -> 
+
+equal?: 1
+complType: 
+ -> 
+
+substitute g:SuperTabMappingTabManual: \<c-j> -> 
+
+equal?: 1
+complType: 
+ -> 
+
+substitute g:SuperTabMappingTabManual: \<c-j> -> 
+
+equal?: 1
+complType: 
+ -> 
+
+substitute g:SuperTabMappingTabManual: \<c-j> -> 
+
+equal?: 1
+complType: 
+ -> 
+
+substitute g:SuperTabMappingTabManual: \<c-j> -> 
+
+equal?: 1
+complType: 
+ -> 
+
+substitute g:SuperTabMappingTabManual: \<c-j> -> 
+
+equal?: 1
+complType: 
+ -> 
+
+substitute g:SuperTabMappingTabManual: \<c-j> -> 
+
+equal?: 1
+complType: 
+ -> 
+
+substitute g:SuperTabMappingTabManual: \<c-j> -> 
+
+equal?: 1
+complType: 
+ -> 
+
+substitute g:SuperTabMappingTabManual: \<c-j> -> 
+
+equal?: 1
+complType: 
+ -> 
+
+substitute g:SuperTabMappingTabManual: \<c-j> -> 
+
+equal?: 1
+complType: 
+ -> 
+
+substitute g:SuperTabMappingTabManual: \<c-j> -> 
+
+equal?: 1
+complType: ^E -> ^E
+substitute g:SuperTabMappingTabManual: \<c-j> -> 
+
+equal?: 0
+complType: 
+ -> 
+
+substitute g:SuperTabMappingTabManual: \<c-j> -> 
+
+equal?: 1
+complType: ^N -> ^N
+substitute g:SuperTabMappingTabManual: \<c-j> -> 
+
+equal?: 0
+complType: 
+ -> 
+
+substitute g:SuperTabMappingTabManual: \<c-j> -> 
+
+equal?: 1
+complType: 
+ -> 
+
+substitute g:SuperTabMappingTabManual: \<c-j> -> 
+
+equal?: 1
+complType: 
+ -> 
+
+substitute g:SuperTabMappingTabManual: \<c-j> -> 
+
+equal?: 1
+complType: ^F -> ^F
+substitute g:SuperTabMappingTabManual: \<c-j> -> 
+
+equal?: 0
+complType: ^F -> ^F
+substitute g:SuperTabMappingTabManual: \<c-j> -> 
+
+equal?: 0
