@@ -146,6 +146,12 @@ set cpo&vim
     let g:SuperTabCompleteCase = 'inherit'
   endif
 
+  if !exists("*g:SuperTabNormalTab")
+    function! g:SuperTabNormalTab()
+      return "\<tab>"
+    endfunction
+  endif
+
 " }}}
 
 " Script Variables {{{
@@ -570,7 +576,13 @@ function! SuperTab(command) " {{{
       return s:Tab()
     endif
 
-    return "\<tab>"
+    " if exists('s:SuperTabNormalTab')
+      " echo 'ok'
+      return g:SuperTabNormalTab()
+    " else
+      " return "\<tab>"
+    " endif
+
   endif
 
   if (a:command == 'n' && g:SuperTabMappingForward ==? '<s-tab>') ||
@@ -587,6 +599,7 @@ function! SuperTab(command) " {{{
 
   return ''
 endfunction " }}}
+
 
 function! s:SuperTabHelp() " {{{
   " Opens a help window where the user can choose a completion type to enter.
